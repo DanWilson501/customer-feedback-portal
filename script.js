@@ -1,3 +1,5 @@
+// U5223-1368
+
 document.getElementById("feedbackForm").addEventListener("submit", (event) => {
     event.preventDefault(); // Prevents Auto Reload
 
@@ -12,6 +14,18 @@ document.getElementById("feedbackForm").addEventListener("submit", (event) => {
 
     const feedback = document.createElement('div');
     feedback.classList.add('feedbackItem');
+
+    const timestamp = new Date().toLocaleString();
+
+    const feedbackContent = `
+        <h3>Feedback Form</h3>
+        <p><strong>Name: </strong>${name}</p>
+        <p><strong>Rating: </strong>${rating}</p>
+        <p><strong>Comments: </strong>${comments}</p>
+        <p><small>Submitted on: ${timestamp}</small></p>
+    `;
+
+    feedback.innerHTML = feedbackContent;
 
     document.getElementById('feedbackDisplay').appendChild(feedback);
 
